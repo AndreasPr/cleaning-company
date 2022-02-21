@@ -1,5 +1,5 @@
 <?php
-define( 'WP_CACHE', true );
+define('WP_CACHE', true); // WP-Optimize Cache
 /**
  * The base configuration for WordPress
  *
@@ -18,26 +18,19 @@ define( 'WP_CACHE', true );
  *
  * @package WordPress
  */
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'bitnami_wordpress' );
-
 /** MySQL database username */
 define( 'DB_USER', 'bn_wordpress' );
-
 /** MySQL database password */
 define( 'DB_PASSWORD', '107ab79020' );
-
 /** MySQL hostname */
 define( 'DB_HOST', '127.0.0.1:3307' );
-
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
-
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -55,9 +48,7 @@ define('AUTH_SALT',        '5bb778925a3c2160ef8e95e109d33d5d329092e9abcc1d61264e
 define('SECURE_AUTH_SALT', '293407ef458fb29bee08d5228f732304effea8cc48046bad21aa1243e11f4462');
 define('LOGGED_IN_SALT',   '4d536bc7cf976d3ace215a5aba695b9a159ce78d945c9437be8572df41af7dc8');
 define('NONCE_SALT',       'f5f61a8e5bde0b955df6f03fd55dcc0adca1ea153c57702dc344739ba8a21e32');
-
 /**#@-*/
-
 /**
  * WordPress Database Table prefix.
  *
@@ -65,7 +56,6 @@ define('NONCE_SALT',       'f5f61a8e5bde0b955df6f03fd55dcc0adca1ea153c57702dc344
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix = 'wp_';
-
 /**
  * For developers: WordPress debugging mode.
  *
@@ -79,7 +69,6 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
-
 /* That's all, stop editing! Happy publishing. */
 /**
  * The WP_SITEURL and WP_HOME options are configured to access from any hostname or IP address.
@@ -88,29 +77,20 @@ define( 'WP_DEBUG', false );
  *  define('WP_SITEURL','http://example.com');
  *
 */
-
 if ( defined( 'WP_CLI' ) ) {
     $_SERVER['HTTP_HOST'] = 'localhost';
 }
-
 define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress');
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress');
-
-
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
-
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
-
 define('WP_TEMP_DIR', 'C:\Bitnami\wordpress-5.7.2-0/apps/wordpress/tmp');
-
-
 //  Disable pingback.ping xmlrpc method to prevent Wordpress from participating in DDoS attacks
 //  More info at: https://docs.bitnami.com/general/apps/wordpress/troubleshooting/xmlrpc-and-pingback/
-
 if ( !defined( 'WP_CLI' ) ) {
     // remove x-pingback HTTP header
     add_filter('wp_headers', function($headers) {
